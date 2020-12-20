@@ -11,7 +11,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-//import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -83,13 +83,13 @@ public class Configu {
         return txManager;
     }
 
-//    @Bean
-//    public InternalResourceViewResolver jspViewResolver() {
-//        InternalResourceViewResolver resolver= new InternalResourceViewResolver();
-//        resolver.setPrefix("/views/");
-//        resolver.setSuffix(".jsp");
-//        return resolver;
-//    }
+    @Bean
+    public InternalResourceViewResolver jspViewResolver() {
+        InternalResourceViewResolver resolver= new InternalResourceViewResolver();
+        resolver.setPrefix("/views/");
+        resolver.setSuffix(".jsp");
+        return resolver;
+    }
 
 
 
