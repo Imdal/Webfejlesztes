@@ -3,7 +3,7 @@
   <div class="col-sm-4"></div>
   <div class="col-sm-4" >
     <div [hidden]="submitted" style="width: 400px;">
-      <form [formGroup]="animalsaveform" #saveanimal (ngSubmit)="saveAnimal(saveAnimal)">
+      <form [formGroup]="animalsaveform" #saveanimal (ngSubmit)="saveAnimal()">
         <div class="form-group">
           <label for="name">Animal Name</label>
           <input type="text" class="form-control"  formControlName="animalName" data-toggle="tooltip"

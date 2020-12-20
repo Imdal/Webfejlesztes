@@ -25,11 +25,11 @@ export class AnimalsComponent implements OnInit {
     pattern:new FormControl('',[Validators.required,Validators.minLength(3)])
   });
 
-  saveAnimal(saveAnimal){
+  saveAnimal(){
     this.animal=new Animals();
-    this.animal.name=this.AnimalName.value;
-    this.animal.color=this.AnimalColor.value;
-    this.animal.pattern=this.AnimalPattern.value;
+    this.animal.name=this.AnimalName?.value;
+    this.animal.color=this.AnimalColor?.value;
+    this.animal.pattern=this.AnimalPattern?.value;
     this.submitted = true;
     this.save();
   }
