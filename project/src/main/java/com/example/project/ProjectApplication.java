@@ -2,34 +2,20 @@ package com.example.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-import javax.faces.webapp.FacesServlet;
-import javax.servlet.Servlet;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
-//import com.sun.faces.config.ConfigureListener;
+import java.util.List;
+
 
 @SpringBootApplication
-public class ProjectApplication{// extends SpringBootServletInitializer {
+@EnableJpaRepositories("es.uc3m.tiw.dominios")
+public class ProjectApplication{
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectApplication.class, args);
+		AnimalService animalService= new AnimalServiceImpl();
+		Animals animals = new Animals("Molly","Brown","None");
+		animalService.saveAnimal(animals);
 	}
 
-	@Bean
-	public FacesServlet facesServlet() {
-		return new FacesServlet();
-	}
-
-	@Bean
-	public ServletRegistrationBean<Servlet> facesServletRegistration() {
-		ServletRegistrationBean<Servlet> registration = new ServletRegistrationBean<Servlet>(facesServlet(), "*.jsf");
-		return registration;
-	}
-
-//	@Bean
-//	public ServletListenerRegistrationBean<ConfigureListener> jsfConfigureListener() {
-//		return new ServletListenerRegistrationBean<ConfigureListener>(new ConfigureListener());
-//	}
 }

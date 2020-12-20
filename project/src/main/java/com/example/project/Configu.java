@@ -18,6 +18,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -31,7 +32,7 @@ public class Configu {
     @Value("${db.driver}")
     private String DB_DRIVER;
 
-    @Value("${db.password}")
+    @Value("")
     private String DB_PASSWORD;
 
     @Value("${db.url}")

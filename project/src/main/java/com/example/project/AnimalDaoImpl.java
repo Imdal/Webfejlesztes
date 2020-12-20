@@ -53,14 +53,14 @@ public class AnimalDaoImpl implements AnimalDao{
     @Override
     public List<Animals> getAnimals() {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query<Animals> query=currentSession.createQuery("from Animals", Animals.class);
+        Query<Animals> query=currentSession.createQuery("select from Animals", Animals.class);
         List<Animals> list=query.getResultList();
         return list;
     }
     @Override
     public List<Animals> getAnimalById(Long id) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query<Animals> query=currentSession.createQuery("from Animals where id=:id", Animals.class);
+        Query<Animals> query=currentSession.createQuery("select from Animals where id=:id", Animals.class);
         query.setParameter("id", id);
         List<Animals> animals=query.getResultList();
         return animals;
@@ -69,7 +69,7 @@ public class AnimalDaoImpl implements AnimalDao{
     @Override
     public List<Animals> getAnimalByName(String name) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query<Animals> query=currentSession.createQuery("from Animals where name=:name", Animals.class);
+        Query<Animals> query=currentSession.createQuery("select from Animals where name=:name", Animals.class);
         query.setParameter("name", name);
         List<Animals> animals=query.getResultList();
         return animals;
